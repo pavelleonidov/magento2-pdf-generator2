@@ -194,7 +194,9 @@ class Pdf extends AbstractHelper
         $paymentTitle= $order->getPayment()->getMethodInstance()->getTitle();
         $transport = [
             'order' => $order,
+            'order_id' => $order->getId(),
             'invoice' => $invoice,
+            'invoice_id' => $invoice->getId(),
             'comment' => $invoice->getCustomerNoteNotify() ? $invoice->getCustomerNote() : '',
             'billing' => $order->getBillingAddress(),
             'payment_html' => $this->getPaymentHtml($order),
